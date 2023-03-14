@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drumeo</title>
+    <link rel="icon" type="image/png" sizes="56x56" href="{{base_url()}}/android-icon-48x48.png"> 
+    
+          <link href="{{base_url()}}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /> 
+
+          {% if page == 'admin' or page == 'login' %}
+          <link rel="stylesheet" href="{{base_url()}}/css/dataTables.bootstrap.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+          <!-- Ionicons -->
+          <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+              <link href="{{base_url()}}/dist/css/AdminLTE.css" rel="stylesheet">  
+              <link rel="stylesheet" href="{{base_url()}}/dist/css/skins/_all-skins.min.css">
+          {% else %} 
+              <link rel="stylesheet" href="{{base_url()}}/css/bootstrap.css">
+              <link rel="stylesheet" href="{{base_url()}}/css/bootstrap-theme.min.css">
+                 <link rel="stylesheet" href="{{base_url()}}/jquery-ui/jquery-ui.theme.min.css"> 
+          <link rel="stylesheet" href="{{base_url()}}/jquery-ui/jquery-ui.min.css">
+              <link rel="stylesheet" href="{{base_url()}}/css/font-awesome.min.css">
+              <link rel="stylesheet" href="{{base_url()}}/vendors/owl.carousel/css/owl.carousel.css">
+              <link rel="stylesheet" type="text/css" href="{{base_url()}}/vendors/js-flickr-gallery/css/js-flickr-gallery.css" media="screen" />
+              <link rel="stylesheet" type="text/css" href="{{base_url()}}/vendors/lightbox/css/lightbox.css" media="screen" />
+              <link rel="stylesheet" type="text/css" href="{{base_url()}}/vendors/flexslider/flexslider.css" media="screen" />
+
+               <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Raleway:400,100,200,300,500,600,700,800,900|Comfortaa:400,300,700|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+              <!--Mechanic Styles-->
+              <link rel="stylesheet" href="{{base_url()}}/css/style.css">
+              <link rel="stylesheet" href="{{base_url()}}/css/responsive.css">
+              <link rel="stylesheet" type="text/css" href="{{base_url()}}/css/ie-only.css"> 
+          {% endif %} 
+
+ 
+</head>
+{% if page == 'login' %}
+<body class="hold-transition login-page">
+{% elseif page == 'admin' %} 
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+{% else %} 
+<body> 
+{% endif %}
+<!-- ------------------------------------------------------------------------------- -->
+{% if page == 'index' %} 
+    {% include 'templates/partials/indexhead.twig' %}
+{% elseif page == 'admin' %}
+    {% include 'templates/partials/admin_header.twig' %}
+
+    {% include 'templates/partials/admin_navigation.twig' %}
+
+{% elseif page == 'login' %} 
+
+{% else %} 
+  {% include 'templates/partials/otherhead.twig' %}
+{% endif %}
+<!-- ----------------------------------------------------------------------------------- -->
+
+    {% block content %}
+        {% include 'templates/partials/flash.twig' %} 
+
+
+    {% endblock %}
+
+<!-- ----------------------------------------------------------------------------------- -->
+
+  {% if page == 'admin' %} </div>  {% endif %}
+
+{% include 'templates/partials/footer.twig' %}
+
+
+{% if footer == 'admin' %}
+{% include 'templates/partials/admin_footer.twig' %}
+
+{% elseif page == 'login' %} 
+
+{% else %} 
+
+{% endif %}
+{% include 'templates/partials/scriptsection.twig' %}
+{% block scripts %}
+    
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+{% set footer = 'footer' %}
+{% set page = 'menu' %}
+{% set front = 'front' %}
+{% extends 'templates/app.twig' %}
+ 
+ {% block content %}
+  <section id="pageTitle" class="row">
+        <div class="row m0 pageTitle"><span>Check out</span></div>
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><a href="{{path_for('cart.index')}}"><i class="fa fa-arrow-circle-right"></i> Cart</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i>Check Out</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+      <section id="blogPosts" class="row contentSection">
+        <div class="container">
+            <form action="{{ path_for('order.create') }}" method="post" autocomplete="off">
+            <div class="row m_30">
+                <div class="col-sm-8">
+                    <div class="row m0 blog single-post">
+                       <div class="row">
+                                    <div class="col-md-6">
+                                        <h4> Your Information </h4>
+                                        <div class="form-group {% if errors.email %} has-error{% endif %}">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" id="email" class="form-control" value="{{ old.email }}">
+                                           {% if errors.email %}
+                                            <span class="help-block">
+                                                {{ errors.email | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                        <div class="form-group{% if errors.name %} has-error{% endif %}">
+                                            <label for="name">Full Name</label>
+                                            <input type="text" name="name" id="name" class="form-control" value="{{ old.name }}">
+                                              {% if errors.name %}
+                                            <span class="help-block">
+                                                {{ errors.name | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div> 
+                                        <div class="form-group{% if errors.phone %} has-error{% endif %}">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="number" name="phone" id="phone" class="form-control" value="{{ old.phone }}">
+                                              {% if errors.phone %}
+                                            <span class="help-block">
+                                                {{ errors.phone | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Delivery Address</h4>
+
+                                        <div class="form-group{% if errors.address1 %} has-error{% endif %}">
+                                            <label for="address1">Address line 1</label>
+                                            <input type="text" name="address1" id="address1" class="form-control" value="{{ old.address1 }}">
+                                              {% if errors.address1 %}
+                                            <span class="help-block">
+                                                {{ errors.address1 | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                        <div class="form-group{% if errors.address2 %} has-error{% endif %}">
+                                            <label for="address2">Address line 2</label>
+                                            <input type="text" name="address2" id="address2" class="form-control" value="{{ old.address2 }}">
+                                              {% if errors.address2 %}
+                                            <span class="help-block">
+                                                {{ errors.address2 | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                         <div class="form-group{% if errors.city %} has-error{% endif %}">
+                                            <label for="city">City</label>
+                                            <input type="text" name="city" id="city" class="form-control" value="{{ old.city }}">
+                                              {% if errors.city %}
+                                            <span class="help-block">
+                                                {{ errors.city | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3>Payment</h3>
+                                <hr>
+                                <div id="payment">
+                                     
+                                </div>
+                    </div> <!--Single Blog-->  
+
+                </div>
+                <div class="col-sm-4 sidebar">
+                        <div class="categories">
+                                <div class="wellk" style="background:#fff;">
+                                   <center><h4>Your oder</h4></center>
+                                   <hr>
+                                    {% include 'cart/partials/contents.twig'  %}
+                                    {% include 'cart/partials/summary.twig'  %}
+
+                                    <button type="submit" class="btn btn-primary">Place order</button>
+                                </div>
+                                </div> 
+     
+                   {{ csrf.field | raw }}
+                   </form>
+                </div>
+            </div>                        
+        </div>
+    </section> <!--Blog Posts-->
+ {% endblock %}
+
+ {% block scripts %}
+ <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script> 
+    <script>
+    $.ajax({
+      url:'{{ path_for('braintree.token')}}',
+      type: 'get',
+      dataType: 'json'
+    }).success(function(data){
+      braintree.setup(data.token, 'dropin', {
+  container: 'payment'
+});
+    });
+    </script>
+{% endblock %}
+ 

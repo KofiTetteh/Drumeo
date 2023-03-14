@@ -1,0 +1,159 @@
+{% set front = 'front' %}
+{% set page = 'appointment' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+     <section id="pageTitle" class="row">
+        <div class="row m0 pageTitle"><span>Book an Appointment</span></div>
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i> appointment form</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+    <section id="appointment" class="row contentSection">
+        <div class="container">
+            <div class="row sectionTitle">
+                <h4><i class="fa fa-calendar"></i> Appointment Information</h4>
+                {{parent()}}
+            </div> <!--Section Title-->
+            <div class="row">
+                <div class="col-md-6">
+                <form class="form" action="{{path_for('appointment')}}" method="POST">
+                            <div class="form-group">
+                                <label for="preferedDate" class="mainLabel">Preferred date of appointment</label>
+                                <div class="input-group {% if errors.date %} has-error{% endif %}">
+                                    <input type="text" class="form-control" placeholder="Date" name="date" id="datepicker" value="{{old.date}}">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                     {% if errors.date %}
+                                            <span class="help-block">
+                                                {{ errors.date | first }}
+                                            </span>
+                                           {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time" class="mainLabel">Preferred time range of appointment</label>
+                                <div class="row m0">
+                                    <select class="form-control " name="time_rang" id="time">
+                                        <option value="12:00 PM - 02:00PM" selected>12:00 PM - 02:00PM</option>
+                                        <option value="02:00 PM - 04:00PM">02:00 PM - 04:00PM</option>
+                                        <option value="04:00 PM - 06:00PM">04:00 PM - 06:00PM</option>
+                                        <option value="06:00 PM - 08:00PM">06:00 PM - 08:00PM</option>
+                                        <option value="08:00 PM - 10:00PM">08:00 PM - 10:00PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                <label for="stayOrNot" class="mainLabel">The Service will be Deliver:</label>                            
+                                <div class="row m0">
+                                    <div class="checkbox-inline">
+                                        <input type="radio" name="waiting" id="waiting" value="0">
+                                        <label class="checkboxLabel" for="dropVahicle">External Services</label>
+                                    </div>                           
+                                    <div class="checkbox-inline">
+                                        <input type="radio" name="waiting" id="waiting" value="1" checked="checked">
+                                        <label class="checkboxLabel" for="stayFor">Internal Service</label>
+                                    </div>
+                                </div>
+                            </div>
+                         <h4> Your Information </h4>
+                                        <div class="form-group {% if errors.email %} has-error{% endif %}">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" id="email" class="form-control" value="{{ old.email }}">
+                                           {% if errors.email %}
+                                            <span class="help-block">
+                                                {{ errors.email | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                        <div class="form-group{% if errors.name %} has-error{% endif %}">
+                                            <label for="name">Full Name</label>
+                                            <input type="text" name="name" id="name" class="form-control" value="{{ old.name }}">
+                                              {% if errors.name %}
+                                            <span class="help-block">
+                                                {{ errors.name | first }}
+                                            </span>
+                                           {% endif %}
+                                        </div> 
+                                        <div class="form-group{% if errors.telephone %} has-error{% endif %}">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="number" name="telephone" id="telephone" class="form-control" value="{{ old.telephone }}">
+                                              {% if errors.telephone %}
+                                            <span class="help-block">
+                                          
+                                            </span>
+                                           {% endif %}
+                                        </div>
+                                    </div>
+         
+                <div class="col-md-6">
+                    <div class="row">
+                        
+                                    <div class="col-sm-6 servicesNeed">
+                                        <ul class="list-group row m0">
+                                            <li class="list-group-item">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" name="serviceSelect[]" id="airConditioning" value="Installation">
+                                                    <label class="checkboxLabel" for="airConditioning">Installation</label>                                                
+                                                </div> 
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" name="serviceSelect[]" id="batteries" value="Repairs">
+                                                    <label class="checkboxLabel" for="batteries">Repairs</label>
+                                                     
+                                                </div> 
+                                            </li> 
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6 servicesNeed">
+                                        <ul class="list-group row m0">
+                                            <li class="list-group-item">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" name="serviceSelect[]" id="heating" value="General Maintenance">
+                                                    <label class="checkboxLabel" for="heating">General Maintenance</label>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" name="serviceSelect[]" id="oilChange" value="Training">
+                                                    <label class="checkboxLabel" for="oilChange">Training</label>
+                                                </div> 
+                                            </li> 
+                                        </ul>
+                                    </div>
+                                    <p>
+                           
+                    </div>       
+                </div>
+                        <hr />
+                              <p>
+                                The terms and Conditions of the appointment, which shall, in any event be subject to the provisions of the Companies Act, 2013, SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 (‘Listing Regulations’).
+                            </p>
+            </div>
+             {{ csrf.field | raw }}
+                                        <button type="submit" class="btn btn-primary">Book Appointment</button>
+                                </form>
+        </div>
+    </section> <!--Blog Posts-->
+    
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    $( function() {
+        $("#datepicker").datepicker({
+             dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true, 
+              minDate: 0,
+              onSelect: function(date) {
+                $("#datepicker").datepicker('option', 'minDate', date);
+              }
+            });
+  
+        });
+</script>
+    
+{% endblock %}

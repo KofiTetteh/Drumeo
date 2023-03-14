@@ -1,0 +1,131 @@
+{% set page = 'admin' %}
+{% set pages = 'product.add' %}
+{% set product = 'product' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+      <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Add Spare Part
+        <small> </small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{{path_for('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Spare Part</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content"> 
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Spare Part</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+              {{ parent() }}
+               <div class="col-md-2">
+                  
+                </div>
+                <div class="col-md-8">
+                    <form role="form" action="{{path_for('product.add')}}" method="post" enctype="multipart/form-data">
+              <div class="box-body">
+                <div class="form-group {% if errors.name %}has-error{% endif %}">
+                  <label for="name">Part name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="{{old.name}}">
+                   {% if errors.name %}
+                    <span class="help-block">
+                        {{ errors.name | first }}
+                    </span>
+                   {% endif %}
+                </div>
+                 <div class="form-group {% if errors.slug %}has-error{% endif %}">
+                  <label for="slug">Slug</label>
+                  <input type="text" class="form-control" id="slug" name="slug" value="{{old.slug}}">
+                   {% if errors.slug %}
+                    <span class="help-block">
+                        {{ errors.slug | first }}
+                    </span>
+                   {% endif %}
+                </div>
+                <div class="form-group {% if errors.price %}has-error{% endif %}">
+                  <label for="price">Price</label>
+                  <input type="number" class="form-control" id="price" name="price" value="{{old.price}}">
+                   {% if errors.price %}
+                    <span class="help-block">
+                        {{ errors.price | first }}
+                    </span>
+                   {% endif %}
+                </div>
+                <div class="form-group {% if errors.stock %}has-error{% endif %}">
+                  <label for="stock">Quantity</label>
+                  <input type="number" class="form-control" id="stock" name="stock" value="{{old.stock}}">
+                   {% if errors.stock %}
+                    <span class="help-block">
+                        {{ errors.stock | first }}
+                    </span>
+                   {% endif %}
+                </div>
+                <div class="form-group {% if errors.description %}has-error{% endif %}">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" rows="3" placeholder="Description" name="description">{{old.description}}</textarea>
+                   {% if errors.description %}
+                    <span class="help-block">
+                        {{ errors.description | first }}
+                    </span>
+                   {% endif %}
+                </div>
+                 <div class="form-group">
+                  <label for="image">File input</label>
+                  <input type="file" id="bimage" name="bimage" class="form-control" required="required"> 
+                </div>
+              </div>  
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+              {{ csrf.field | raw }}
+            </form>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-2">
+                  
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+            <div class="box-footer">
+              <div class="row">
+               
+                
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

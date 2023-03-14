@@ -1,0 +1,56 @@
+{% set footer = 'footer' %}
+{% set page = 'menu' %}
+{% set front = 'front' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <section id="pageTitle" class="row">
+        <div class="row m0 pageTitle"><span>Check out</span></div>
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><a href="{{path_for('cart.index')}}"><i class="fa fa-arrow-circle-right"></i> Cart</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i>Check Out</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+    <div class="blog">
+                <!-- container -->
+                <div class="container">
+                    <div class="col-md-6 blog-top-left-grid">
+                        <div class="left-blog left-single">
+                            <div class="blog-left">
+                                <div class="single-left-left"> 
+                                      <h4>Shipping to</h4>
+                                    <b>  Address 1: </b>{{ order.address.address1 }} <br />
+                                      <b>Address 2:</b> {{ order.address.address2 }} <br />
+                                      <b>City:</b> {{ order.address.city }} <br />
+                                </div> 
+                                
+                            </div>  
+                        </div>
+                    </div> 
+                         <div class="col-md-6 blog-top-right-grid">
+                                <div class="categories">
+                                <div class="well">
+                                    <h4>Items</h4>
+
+                                    {% for product in order.products %}
+                                        <a href="{{ path_for('product.get', { slug: product.slug}) }}"> {{ product.title }}</a> (x {{ product.pivot.quantity }})<br />
+                                    {% endfor %}
+                                    <hr>
+
+                                    <b>Delivery:</b>$5 <br />
+
+                                    <strong>Order total: ${{ (order.total ) | number_format(2) }}</strong>
+                                </div>
+                                </div> 
+
+                    </div>
+                     
+                   
+                    <div class="clearfix"> </div>
+                </div>
+                <!-- //container -->
+    </div> 
+{% endblock %}

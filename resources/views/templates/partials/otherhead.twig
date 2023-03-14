@@ -1,0 +1,32 @@
+     <header class="row">        
+        <div class="container">
+            <div class="row logo_line">
+                 <div class="fleft logo"  style="color:white; font-size:20px;"><a href="{{path_for('home')}}"><img src="{{base_url()}}/logo_.png" alt="">Drumeo</a></div>
+                <div class="fright pre_contact">
+                    <ul class="list-inline">
+                       <li><a href="mailto:contact@mechanic.com"><span><i class="fa fa-envelope-o"></i></span>drumeo@instrument.com</a></li>
+                        <li><a href="tel:(900) 123-456-789-0123"><span><i class="fa fa-phone"></i></span>+233 (0) 549 834 718</a></li>
+                        <li>  <a href="{{path_for('cart.index')}}" style="color:#fff;"><i class="fa fa-shopping-cart" aria-hidden="true"  > Cart ({{ basket.itemCount }})</i></a> </li>
+                    </ul>
+                </div>
+            </div> <!--Logo Line-->
+        </div>
+        
+        <div class="row m0 navigationRow">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top row">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                                <i class="fa fa-bars"></i> Menu
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                               {% include 'templates/partials/navigation.twig' %}
+                    </div><!-- /.container-fluid -->
+                </nav> <!--Navbar-->
+            </div>
+        </div> <!--Container-->
+    </header> <!--Header-->

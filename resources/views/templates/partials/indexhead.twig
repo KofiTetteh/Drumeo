@@ -1,0 +1,105 @@
+     <header class="row">        
+        <div class="container">
+            <div class="row logo_line">
+                <div class="fleft logo"  style="color:white; font-size:20px;"><a href="{{path_for('home')}}"><img src="{{base_url()}}/logo_.png" alt="">Drumeo</a></div>
+                <div class="fright pre_contact">
+                    <ul class="list-inline">
+                        <li><a href="mailto:contact@mechanic.com"><span><i class="fa fa-envelope-o"></i></span>drumeo@instrument.com</a></li>
+                        <li><a href="tel:(900) 123-456-789-0123"><span><i class="fa fa-phone"></i></span>+233 (0) 567 345 234</a></li>
+                         <li><a href="{{path_for('cart.index')}}" style="color:#fff;"><i class="fa fa-shopping-cart" aria-hidden="true"  > Cart ({{ basket.itemCount }})</i></a> </li>
+                    </ul>
+                </div>
+            </div> <!--Logo Line-->
+        </div> 
+            <div class="row m0 navigationRow">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top row">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                                <i class="fa fa-bars"></i> Menu
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                       {% include 'templates/partials/navigation.twig' %}
+                    </div><!-- /.container-fluid -->
+                </nav> <!--Navbar-->
+            </div>
+        </div> <!--Container-->
+     
+    </header> <!--Header-->
+
+        <section id="slider_blocks" class="row">
+        <div class="homeSlider flexslider row m0">
+            <ul class="slides nav">
+                <li>
+                    <img src="{{base_url()}}/images/slider/slide01.jpg" alt="">
+                    <div class="text_lines row m0">
+                        <div class="container p0">
+                            <h3 class="line1">Our Instrument are the Best</h3><br>
+                            <h3 class="line2"><strong>Drumeo</strong> provides the best instrument you can find around<strong></strong>.</h3>
+                        </div>
+                    </div> <!--Text Lines-->
+                </li>
+                <li>
+                    <img src="{{base_url()}}/images/slider/slide02.jpg" alt="">
+                    <div class="text_lines row m0">
+                        <div class="container p0">
+                            <h3 class="line1">We are alway here to mee your instrument need </h3><br>
+                            <h3 class="line2">Let <strong>Drumeo </strong> Ensure you get value for money at all<strong>times</strong> </h3>
+                        </div>
+                    </div> <!--Text Lines-->
+                </li>
+                <li>
+                    <img src="{{base_url()}}/images/slider/slide03.jpg" alt="">
+                    <div class="text_lines row m0">
+                        <div class="container p0">
+                            <h3 class="line1">Jump Start you Music career with Drumeo</h3><br>
+                            <h3 class="line2"><strong> Drumeo</strong><strong> got you cover</strong>.</h3>
+                    </div> <!--Text Lines-->
+                </li>
+            </ul>
+        </div> <!--Flex Slider-->
+                        </div>
+        <div class="blocksRow container">
+            <div class="row m0">
+                <div class="row blocks">
+                    <div class="col-sm-4 block">
+                        <div class="col-xs-6">
+                            <img src="{{base_url()}}/images/services/service-block1.png" alt="" class="hidden420">
+                            <img src="{{base_url()}}/images/services/service-block1.png" class="visible420" alt="">
+                        </div>
+                        <div class="col-xs-6">
+                            <h3>General Maintenance</h3>
+                            <p>How often do you maintain your instrument</p>
+                            <!-- <a href="services.html"><i class="fa fa-angle-right"></i>Read More</a> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-4 block">
+                        <div class="col-xs-6">
+                            <img src="images/services/service-block2.png" alt="" class="hidden420">
+                            <img src="images/services/service-block2.png" class="visible420" alt="">
+                        </div>
+                        <div class="col-xs-6">
+                            <h3>Installation</h3>
+                            <p>Are U having difficulties with Installation, Just call us</p>
+                            <!-- <a href="services.html"><i class="fa fa-angle-right"></i>Read More</a> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-4 block">
+                        <div class="col-xs-6">
+                            <img src="{{base_url()}}/images/services/service-block3.png" alt="" class="hidden420">
+                            <img src="{{base_url()}}/images/services/service-block3-mobile.png" class="visible420" alt="">
+                        </div>
+                        <div class="col-xs-6">
+                            <h3>Repairs</h3>
+                            <p>Are u having trouble with any instrument?</p>
+                            <!-- <a href="services.html"><i class="fa fa-angle-right"></i>Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Blocks-->
+    </section> <!--Slider Section-->

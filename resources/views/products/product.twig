@@ -1,0 +1,58 @@
+{% set footer = 'footer' %}
+{% set page = 'menu' %}
+{% set front = 'front' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+    <section id="pageTitle" class="row">
+        <div class="row m0 pageTitle"><span>Instrument Detail</span></div>
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><a href="{{path_for('menu')}}"><i class="fa fa-arrow-circle-right"></i> Instrument</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i> Instrument Details</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+
+        <section id="blogPosts" class="row contentSection">
+        <div class="container">
+            <div class="row m_30">
+                <div class="col-sm-8">
+                    <div class="row m0 blog single-post">
+                        <div class="row m0 imgCD">
+                            <div class="row m0 imgCDInner">
+                                <img src="{{base_url()}}/upload/{{product.image}}" alt="spare part image" width="100px" height="400px">
+                                <div class="row m0 comDat">
+                                    <div class="row m0 comment"><a href="#"><i class="fa fa-dollar"></i> {{product.price}}</a></div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m0 excerpt"> 
+                            <p>{{product.description}}  </p>
+                        </div>
+                    </div> <!--Single Blog-->  
+
+                </div>
+                <div class="col-sm-4 sidebar">
+                      {% if hasLowStock %}
+                            <span class="label label-warning"> Low stock</span>
+                        {% endif %}
+                          {% if  outOfStock %}
+                            <span class="label label-danger">Out of stock</span>
+                        {% endif %}  
+                                                     
+                        <p><span style="font-size:40px;"><b>{{product.title}}</b></span></p> 
+                             <p>{{product.description}}  </p>
+
+                         {% if inStock %}
+                            <a href="{{ path_for('cart.add',{slug:product.slug, quantity: 1})}}" class="btn btn-default btn-sm">Add to cart</a>
+                        {% endif %}
+     
+                 
+                </div>
+            </div>                        
+        </div>
+    </section> <!--Blog Posts-->
+    
+{% endblock %}

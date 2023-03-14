@@ -1,0 +1,48 @@
+{% set footer = 'footer' %} 
+{% set page = 'menu' %}
+{% set front = 'front' %}
+{%  extends 'templates/app.twig' %}
+
+{% block content %} 
+      <section id="pageTitle" class="row">
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i> Instrument</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+
+     <section id="blogPosts" class="row contentSection">
+        <div class="container">
+            <div class="row m_30 index_blogs">
+              {% for index, product in products %}
+                <div class="col-sm-4 blog">
+                    <div class="row m0 imgCD">
+                     <img src="{{base_url()}}/upload/{{product.image}}" alt="" width="100" height="250" />
+                        <div class="row m0 comDat">
+                            <div class="row m0 comment"><a href="#"><i class="fa fa-dollar"></i>${{product.price}}</a></div>
+                            <!-- <div class="row m0 date"><a href="#">01<br>Feb</a></div> -->
+                        </div>
+                    </div>
+                    <div class="row m0 excerpt">
+                        <a href="{{path_for('product.get',{slug: product.slug})}}"><h4>{{product.title}}</h4></a>
+                      
+                    </div>
+                </div> <!--Single Blog-->
+                {% endfor %}
+                
+                
+                 
+            </div>            
+            <nav class="paginationRow row">
+               <!--  <ul class="pagination">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul> -->
+            </nav>
+        </div>
+    </section> <!--Blog Posts-->
+{% endblock %}

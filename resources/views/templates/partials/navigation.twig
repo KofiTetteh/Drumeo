@@ -1,0 +1,10 @@
+            <div class="collapse navbar-collapse" id="mainNav">
+                            <ul class="nav navbar-nav">
+                                <li class="{% if page == 'index' %}active{% endif %}"><a href="{{path_for('home')}}">home</a></li>
+                                <li class="{% if page == 'menu' %}active{% endif %}"><a href="{{path_for('menu')}}">Instruments</a></li>
+                                <li  class="{% if page == 'about' %}active{% endif %}"><a href="{{path_for('about_us')}}">about us</a></li>   
+                                
+                                <li class="{% if page == 'appointment' %}active{% endif %}"><a href="{{path_for('appointment')}}">appointment</a></li>
+                                <li class="{% if page == 'contact' %}active{% endif %}"><a href="{{path_for('contact_us')}}">contact</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->

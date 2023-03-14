@@ -1,0 +1,164 @@
+{% set page = 'admin' %}
+{% set pages = 'appointment' %}
+{% set product = 'order' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+      <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Client Appointment
+        <small> </small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">appointment</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content"> 
+      <div class="row">
+      <!-- {{ orders | json_encode }} -->
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Appointment</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row"> 
+               <div class="col-md-12">
+                    {{ parent() }}
+                  <table class="table" id="productss">
+                      <thead>
+                          <tr>
+                              <th>#ID</th>
+                              <th>Date</th>
+                              <th>Between</th>
+                              <th>I will Like</th>
+                              <th>Customer name</th>
+                              <th>Email</th>
+                              <th>Telephone</th>  
+                              <th>Service(s) Equired</th>  
+                          </tr>
+                      </thead>
+                      <tbody>
+                      {% for item in appointments %}
+                          <tr>  
+                              <td>{{ item.appoin_id }}</td>
+                              <td>{{ item.date |date("F jS Y ") }}</td>
+                              <td>{{ item.time_rang }}</td>
+                              <td>
+                                  {% if item.waiting == 0 %}
+                                      External Services
+                                      {% elseif item.waiting == 1 %}
+                                         Internal Services
+                                       {% endif %}  
+                              </td>
+                              <td>{{ item.customer.name }}</td>
+                              <td>{{ item.customer.email }}</td>
+                              <td>{{ item.customer.telephone }}</td>
+                              <td><center>
+                                  <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  Services
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    {% for service in item.service %}
+                                     <li><a href="#">{{service.name}}</a></li> 
+                                    {% endfor %}
+                                </ul>
+                              </div>
+                                  </center>
+                              </td>
+                              
+                          </tr>
+                      {% endfor %}
+                          
+                      </tbody>
+                         <tfoot>
+                          <tr>
+                             <th>#ID</th>
+                              <th>Date</th>
+                              <th>Between</th>
+                              <th>I will Like to</th>
+                              <th>Customer name</th>
+                              <th>Email</th>
+                              <th>Telephone</th>  
+                              <th>Service(s) Equired</th>   
+                          </tr>
+                      </tfoot>
+                  </table>
+                </div>
+                 
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+            <div class="box-footer">
+              <div class="row">
+               
+                
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+ <div class="example-modal" id="">
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Ordered Products</h4>
+              </div>
+              <div class="modal-body showproduct">
+                <!-- <p>One fine body&hellip;</p> -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> 
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+      </div>
+      
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}
+{% block scripts %}
+<script src="{{base_url()}}/js/jquery.dataTables.min.js"></script> 
+<script src="{{base_url()}}/js/dataTables.bootstrap.min.js"></script> 
+   <script type="text/javascript">
+    $(document).ready(function(){
+     
+    });
+     $(function () {
+    $("#productss").DataTable();
+    
+  });
+   </script> 
+{% endblock %}

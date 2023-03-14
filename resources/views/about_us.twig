@@ -1,0 +1,122 @@
+{% set front = 'front' %}
+{% set page = 'about' %}
+{% extends 'templates/app.twig' %}
+
+{% block content %} 
+        <section id="pageTitle" class="row">
+        <div class="row m0 breadcrumbRow">
+            <ul class="list-inline">
+                <li><a href="{{path_for('home')}}">home</a></li>
+                <li><i class="fa fa-arrow-circle-right"></i> about</li>
+            </ul>
+        </div>
+    </section> <!--Page Title-->
+    <section id="aboutus" class="row contentSection">
+        <div class="container">
+            <div class="row sectionTitle">
+                <h4><i class="fa fa-file-text-o"></i> About Us</h4>
+            </div> <!--Section Title-->
+            <div class="row m_30 aboutSec">
+                <div class="col-sm-6 aboutImg">
+                    <img src="images/about/about.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="col-sm-6 aboutTexts">
+                    <p>Drumeo is home to the worlds largest selection of popular guitars, basses, amplifiers, keyboards, workstations, drums, percussion, microphones, PA systems, DJ equipment, stage lighting, recording software, studio gear and more. Backed by over 260 stores across the country, GuitarCenter.com offers the fastest, easiest way to find all the gear you need in one place. And, while many popular instruments are available for same-day pickup at a store near you, we also offer free shipping on thousands of items to the Drumeo location of your choice.</p> 
+
+                    <p>Because of our incredible buying power and strong relationships with all the top musical instrument brands, you’re sure to find all the best gear at the guaranteed lowest price. From the all new Gibson USA 2016 updates to the largest collection of Strats, we’ve got everything a guitarist could ask for, not to mention our vast collection of effects pedals and accessories.</p> 
+
+                    <p>Drummers need look no further for the biggest selection of the best drum gear, including acoustic drum sets, electronic drum sets, hand drums, cymbals and sticks. And for the independent recording artist, check out Avid Pro Tools, PreSonus StudioLive, Epix Bundle 10, and Komplete 10 - plus our live sound products, from mixers to monitors and more, will suit the needs of any gigging musician.</p> 
+                </div>
+            </div>      
+               
+            <div class="row sectionTitle">
+                <h4><i class="fa fa-user"></i> More Items</h4>
+            </div> <!--Section Title-->
+            <div class="row teamMembers m_30">
+                <div class="col-sm-6 teamMember">
+                    <div class="row m0 teamMemberInner">
+                        <div class="col-xs-6 p0">
+                            <img src="images/about/member1.jpg" alt="">
+                            <div class="row m0 socialList">
+                                 
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row memIntro">
+                                <h4>Instrument</h4>
+                                <h5>$1000</h5>
+                            </div>
+                            <div class="memAbout row">
+                                The Mitchell MD100CE Dreadnought Cutaway Electric-Acoustic Guitar has a full-sized cutaway dreadnought body with a spruce top and mahogany back and sides. The cutaway enhances playability by offering complete fingerboard access. 
+                            </div>
+                        </div>
+                    </div> <!--Team Member Inner-->
+                </div> <!--Team Member-->
+                <div class="col-sm-6 teamMember">
+                    <div class="row m0 teamMemberInner">
+                        <div class="col-xs-6 p0">
+                            <img src="images/about/member2.jpg" alt="">
+                            <div class="row m0 socialList">
+                                 
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row memIntro">
+                                <h4>Instrument</h4>
+                                <h5>$900</h5>
+                            </div>
+                            <div class="memAbout row">
+                                The MD100CE features a dovetail neck joint, compensated sadldle, real abalone rosette and scalloped bracing for improved resonance. The onboard AT3000 active preamp lets you plug in and play with confidence in any venue. This affordable instrument will give you years of playing pleasure. Case sold separately.
+                            </div>
+                        </div>
+                    </div> <!--Team Member Inner-->
+                </div> <!--Team Member-->
+                <div class="col-sm-6 teamMember">
+                    <div class="row m0 teamMemberInner">
+                        <div class="col-xs-6 p0">
+                            <img src="images/about/member3.jpg" alt="">
+                            <div class="row m0 socialList">
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row memIntro">
+                                <h4>Instrument</h4>
+                                <h5>$800</h5>
+                            </div>
+                            <div class="memAbout row">
+                                 With this 10-disc set (9 DVDs and 1 CD), guitar master Steve Krenz shows you how to play beautifully and cleanly using his tried-and-true fingerstyle method. Each session is accompanied by both a beginner and an advanced workshop session. Best of all, you'll learn more than just "technique.".
+                            </div>
+                        </div>
+                    </div> <!--Team Member Inner-->
+                </div> <!--Team Member-->
+                <div class="col-sm-6 teamMember">
+                    <div class="row m0 teamMemberInner">
+                        <div class="col-xs-6 p0">
+                            <img src="images/about/member4.jpg" alt="">
+                            <div class="row m0 socialList">
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row memIntro">
+                                <h4>Instrument</h4>
+                                <h5>$700</h5>
+                            </div>
+                            <div class="memAbout row">
+                                The low-mass lugs lets the shell vibrate for superb tone and sustain. Yamaha's Air Seal System used for drum shell construction ensures each and every Yamaha drum shell is of uniform thickness and is perfectly round to achieve superior tone quality and durabilit
+                            </div>
+                        </div>
+                    </div> <!--Team Member Inner-->
+                </div> <!--Team Member-->
+            </div>            
+                              
+        </div>
+    </section> <!--Blog Posts-->
+     {% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+   
+</script>
+    
+{% endblock %}
